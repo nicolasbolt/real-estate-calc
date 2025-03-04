@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
 
 import Expenses from "@/components/calculator/Expenses"
 import MortgageCalculator from "@/components/calculator/MortgageCalculator"
@@ -48,9 +48,13 @@ const Calculator = () => {
 
   return (
     <div className="container mx-auto py-10 px-4 max-w-6xl">
-      <div className="flex flex-col items-center mb-8">
-        <h1 className="text-3xl font-bold text-[#072BF2]">Real Estate Investment Calculator</h1>
-        <p className="text-[#4B75F2] mt-2 text-center max-w-2xl">
+      <div className="flex flex-col items-center mb-10 bg-[#4B75F2]/10 py-8 px-6 rounded-lg border border-[#B3BDF2]/30 shadow-sm">
+        <div className="mb-3">
+          <h1 className="text-4xl font-bold text-[#072BF2]">
+            Real Estate <span className="border-b-2 border-[#4B75F2] rounded-full pb-0.5">Investment</span> Calculator
+          </h1>
+        </div>
+        <p className="text-gray-700 mt-6 text-center max-w-2xl">
           Calculate your potential investment returns with our comprehensive real estate calculator
         </p>
       </div>
@@ -82,19 +86,19 @@ const Calculator = () => {
             <TabsContent value="inputs" className="mt-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card className="border-[#B3BDF2] shadow-md">
-                  <CardHeader className="bg-[#072BF2]/5 pb-2">
-                    <CardTitle className="text-[#072BF2]">Mortgage Details</CardTitle>
+                  <CardHeader className="bg-[#072BF2]/5 py-4">
+                    <CardTitle className="text-[#072BF2] text-xl">Mortgage Details</CardTitle>
                   </CardHeader>
-                  <CardContent className="pt-4">
+                  <CardContent className="pt-6">
                     <MortgageCalculator mortgage={mortgage} setMortgage={setMortgage} />
                   </CardContent>
                 </Card>
                 
                 <Card className="border-[#B3BDF2] shadow-md">
-                  <CardHeader className="bg-[#072BF2]/5 pb-2">
-                    <CardTitle className="text-[#072BF2]">Revenue</CardTitle>
+                  <CardHeader className="bg-[#072BF2]/5 py-4">
+                    <CardTitle className="text-[#072BF2] text-xl">Revenue</CardTitle>
                   </CardHeader>
-                  <CardContent className="pt-4">
+                  <CardContent className="pt-6">
                     <Revenue revenue={revenue} setRevenue={setRevenue} />
                   </CardContent>
                 </Card>
@@ -103,10 +107,10 @@ const Calculator = () => {
             
             <TabsContent value="expenses" className="mt-4">
               <Card className="border-[#B3BDF2] shadow-md">
-                <CardHeader className="bg-[#072BF2]/5 pb-2">
-                  <CardTitle className="text-[#072BF2]">Expenses Breakdown</CardTitle>
+                <CardHeader className="bg-[#072BF2]/5 py-4">
+                  <CardTitle className="text-[#072BF2] text-xl">Expenses Breakdown</CardTitle>
                 </CardHeader>
-                <CardContent className="pt-4">
+                <CardContent className="pt-6">
                   <Expenses expenses={expenses} setExpenses={setExpenses} />
                 </CardContent>
               </Card>
@@ -114,10 +118,10 @@ const Calculator = () => {
             
             <TabsContent value="analysis" className="mt-4">
               <Card className="border-[#B3BDF2] shadow-md">
-                <CardHeader className="bg-[#072BF2]/5 pb-2">
-                  <CardTitle className="text-[#072BF2]">Investment Analysis</CardTitle>
+                <CardHeader className="bg-[#072BF2]/5 py-4">
+                  <CardTitle className="text-[#072BF2] text-xl">Investment Analysis</CardTitle>
                 </CardHeader>
-                <CardContent className="pt-4">
+                <CardContent className="pt-6">
                   <InvestmentAnalysis
                     revenue={revenue}
                     expenses={expenses}
@@ -135,24 +139,32 @@ const Calculator = () => {
         </div>
         
         <div className="lg:col-span-4">
-          <Card className="border-[#B3BDF2] shadow-md sticky top-4">
-            <CardHeader className="bg-[#072BF2] text-white">
-              <CardTitle>Investment Summary</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-4">
-              <ScrollArea className="h-[500px] pr-4">
-                <div className="space-y-4">
-                  <div className="p-3 bg-[#B3BDF2]/20 rounded-md">
-                    <h3 className="font-medium text-[#072BF2]">Property Details</h3>
-                    <div className="mt-2 space-y-1">
+          <div className="bg-gradient-to-b from-[#C5D0D9]/30 to-transparent p-0.5 rounded-lg shadow-lg">
+            <Card className="border-[#B3BDF2] shadow-inner rounded-md sticky top-4">
+              <CardHeader className="bg-[#4B75F2]/10 py-4 rounded-t-md border-b border-[#B3BDF2]">
+                <CardTitle className="text-[#072BF2] text-xl flex items-center">
+                  <div className="h-6 w-1 bg-[#072BF2] rounded-full mr-2"></div>
+                  Investment Summary
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="space-y-5">
+                  <div className="p-4 bg-[#B3BDF2]/20 rounded-md border border-[#B3BDF2]/30">
+                    <h3 className="font-medium text-[#072BF2] mb-2 flex items-center">
+                      <span className="h-3 w-3 bg-[#072BF2] rounded-full mr-2"></span>
+                      Property Details
+                    </h3>
+                    <div className="space-y-2">
                       <div className="flex justify-between">
                         <span className="text-gray-600">Purchase Price:</span>
                         <span className="font-semibold">${mortgage.homePrice.toLocaleString()}</span>
                       </div>
+                      <Separator className="bg-[#C5D0D9]/50" />
                       <div className="flex justify-between">
                         <span className="text-gray-600">Down Payment:</span>
                         <span className="font-semibold">${mortgage.downPayment.toLocaleString()} ({((mortgage.downPayment / mortgage.homePrice) * 100).toFixed(0)}%)</span>
                       </div>
+                      <Separator className="bg-[#C5D0D9]/50" />
                       <div className="flex justify-between">
                         <span className="text-gray-600">Loan Amount:</span>
                         <span className="font-semibold">${(mortgage.homePrice - mortgage.downPayment).toLocaleString()}</span>
@@ -160,39 +172,49 @@ const Calculator = () => {
                     </div>
                   </div>
 
-                  <div className="p-3 bg-[#578BF2]/10 rounded-md">
-                    <h3 className="font-medium text-[#072BF2]">Monthly Financials</h3>
-                    <div className="mt-2 space-y-1">
+                  <div className="p-4 bg-[#578BF2]/10 rounded-md border border-[#578BF2]/20">
+                    <h3 className="font-medium text-[#072BF2] mb-2 flex items-center">
+                      <span className="h-3 w-3 bg-[#578BF2] rounded-full mr-2"></span>
+                      Monthly Financials
+                    </h3>
+                    <div className="space-y-2">
                       <div className="flex justify-between">
                         <span className="text-gray-600">Gross Income:</span>
                         <span className="font-semibold">${revenue.grossRentalIncome.toLocaleString()}</span>
                       </div>
+                      <Separator className="bg-[#C5D0D9]/50" />
                       <div className="flex justify-between">
                         <span className="text-gray-600">Total Expenses:</span>
                         <span className="font-semibold">${expenses.totalExpenses.toLocaleString()}</span>
                       </div>
+                      <Separator className="bg-[#C5D0D9]/50" />
                       <div className="flex justify-between">
                         <span className="text-gray-600">Mortgage Payment:</span>
                         <span className="font-semibold">${mortgagePayment.toFixed(2)}</span>
                       </div>
-                      <div className="flex justify-between border-t border-[#4B75F2]/20 pt-1 mt-1">
-                        <span className="text-gray-600">Cash Flow:</span>
-                        <span className="font-semibold text-[#072BF2]">
+                      <Separator className="bg-[#4B75F2]/20" />
+                      <div className="flex justify-between pt-1">
+                        <span className="text-gray-800 font-medium">Cash Flow:</span>
+                        <span className="font-bold text-[#072BF2]">
                           ${(revenue.grossRentalIncome - expenses.totalExpenses - mortgagePayment).toFixed(2)}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-3 bg-[#4B75F2]/10 rounded-md">
-                    <h3 className="font-medium text-[#072BF2]">Key Metrics</h3>
-                    <div className="mt-2 space-y-1">
+                  <div className="p-4 bg-[#4B75F2]/10 rounded-md border border-[#4B75F2]/20">
+                    <h3 className="font-medium text-[#072BF2] mb-2 flex items-center">
+                      <span className="h-3 w-3 bg-[#4B75F2] rounded-full mr-2"></span>
+                      Key Metrics
+                    </h3>
+                    <div className="space-y-2">
                       <div className="flex justify-between">
                         <span className="text-gray-600">Cap Rate:</span>
                         <span className="font-semibold">
                           {((revenue.grossRentalIncome - expenses.totalExpenses) * 12 / mortgage.homePrice * 100).toFixed(2)}%
                         </span>
                       </div>
+                      <Separator className="bg-[#C5D0D9]/50" />
                       <div className="flex justify-between">
                         <span className="text-gray-600">Cash on Cash Return:</span>
                         <span className="font-semibold">
@@ -202,9 +224,9 @@ const Calculator = () => {
                     </div>
                   </div>
                 </div>
-              </ScrollArea>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>
