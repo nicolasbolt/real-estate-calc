@@ -47,10 +47,10 @@ const Calculator = () => {
   const mortgagePayment = calculateMortgage(mortgage)
 
   return (
-    <div className="container mx-auto py-10 px-4 max-w-6xl">
+    <div className="container mx-auto py-10 px-4 md:w-8/12 w-11/12">
       <div className="flex flex-col items-center mb-10 bg-[#4B75F2]/10 py-8 px-6 rounded-lg border border-[#B3BDF2]/30 shadow-sm">
         <div className="mb-3">
-          <h1 className="text-4xl font-bold text-[#072BF2]">
+          <h1 className="text-4xl md:text-left text-center font-bold text-[#072BF2]">
             Real Estate <span className="border-b-2 border-[#4B75F2] rounded-full pb-0.5">Investment</span> Calculator
           </h1>
         </div>
@@ -65,19 +65,19 @@ const Calculator = () => {
             <TabsList className="grid w-full grid-cols-3 bg-[#C5D0D9]/20">
               <TabsTrigger 
                 value="inputs" 
-                className="data-[state=active]:bg-[#4B75F2] data-[state=active]:text-white"
+                className="data-[state=active]:bg-[#4B75F2] data-[state=active]:text-white cursor-pointer"
               >
                 Inputs
               </TabsTrigger>
               <TabsTrigger 
                 value="expenses" 
-                className="data-[state=active]:bg-[#4B75F2] data-[state=active]:text-white"
+                className="data-[state=active]:bg-[#4B75F2] data-[state=active]:text-white cursor-pointer"
               >
                 Expenses
               </TabsTrigger>
               <TabsTrigger 
                 value="analysis" 
-                className="data-[state=active]:bg-[#4B75F2] data-[state=active]:text-white"
+                className="data-[state=active]:bg-[#4B75F2] data-[state=active]:text-white cursor-pointer"
               >
                 Analysis
               </TabsTrigger>
