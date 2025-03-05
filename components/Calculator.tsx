@@ -111,7 +111,7 @@ const Calculator = () => {
                   <CardTitle className="text-[#072BF2] text-xl">Expenses Breakdown</CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6">
-                  <Expenses expenses={expenses} setExpenses={setExpenses} />
+                  <Expenses expenses={expenses} setExpenses={setExpenses} grossRentalIncome={revenue.grossRentalIncome} />
                 </CardContent>
               </Card>
             </TabsContent>
