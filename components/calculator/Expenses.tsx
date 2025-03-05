@@ -51,7 +51,6 @@ const Expenses = ({ expenses, setExpenses }: ExpensesProps) => {
   };
 
   return (
-<<<<<<< Updated upstream
     <div className="space-y-6 p-5 bg-[#B3BDF2]/20 rounded-lg">
       <Tabs defaultValue="all" className="w-full">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
@@ -196,38 +195,6 @@ const Expenses = ({ expenses, setExpenses }: ExpensesProps) => {
               <p className="text-xs text-gray-500 mt-1">
                 Industry standard: 35-45%
               </p>
-=======
-    <div className="p-6 border rounded-lg shadow-md w-full h-fit">
-      <h2 className="text-xl font-bold mb-4">Expenses (per month)</h2>
-      <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {Object.keys(expenses)
-          .filter((key) => key !== 'totalExpenses')
-          .map((key) => (
-            <div key={key} className="flex items-center space-x-2">
-              <Label className="block font-medium w-1/3">{camelCaseToWords(key)}</Label>
-              <span className='mr-2'>$</span><Input
-                type="number"
-                value={(expenses[key as keyof ExpenseInputs] as ExpenseInput).amount}
-                onChange={(e) => handleInputChange(key as keyof ExpenseInputs, Number(e.target.value))}
-                className="md:w-1/3 p-2 border rounded-md"
-              />
-              {/* <select
-                value={(expenses[key as keyof ExpenseInputs] as ExpenseInput).type}
-                onChange={(e) =>
-                  setExpenses((prev) => ({
-                    ...prev,
-                    [key]: {
-                      ...(prev[key as keyof ExpenseInputs] as ExpenseInput),
-                      type: e.target.value,
-                    },
-                  }))
-                }
-                className="w-1/3 p-2 border rounded-md"
-              >
-                <option value="$">$</option>
-                <option value="%">%</option>
-              </select> */}
->>>>>>> Stashed changes
             </div>
           </CardContent>
         </Card>

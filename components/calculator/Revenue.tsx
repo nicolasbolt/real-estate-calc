@@ -2,15 +2,11 @@
 
 import { RevenueInputs } from '@/types/revenue'
 import { camelCaseToWords } from '@/utils/stringUtils'
-<<<<<<< Updated upstream
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Card, CardContent } from "@/components/ui/card"
 import { DollarSign, Pencil } from "lucide-react"
-=======
-import { Input } from '../ui/input';
->>>>>>> Stashed changes
 
 interface RevenueProps {
   revenue: RevenueInputs;
@@ -38,7 +34,6 @@ const Revenue = ({ revenue, setRevenue }: RevenueProps) => {
   }
 
   return (
-<<<<<<< Updated upstream
     <div className="space-y-8 p-4 bg-[#B3BDF2]/20 rounded-lg">
       {/* Unit 1 */}
       <div className="space-y-4">
@@ -150,29 +145,6 @@ const Revenue = ({ revenue, setRevenue }: RevenueProps) => {
           </div>
         </CardContent>
       </Card>
-=======
-    <div className="p-6 border rounded-lg shadow-md w-full h-fit">
-      <h2 className="text-xl font-bold mb-4">Revenue (per month)</h2>
-      <form className="space-y-3">
-        {Object.keys(revenue)
-          .filter((key) => key !== 'grossRentalIncome')
-          .map((key) => (
-            <div key={key} className="flex items-center justify-between">
-              <label className="block font-medium w-1/2">{camelCaseToWords(key)}</label>
-              <Input
-                type="number"
-                value={revenue[key as keyof RevenueInputs]}
-                onChange={(e) => handleInputChange(key as keyof RevenueInputs, Number(e.target.value))}
-                className="w-1/2 p-2 border rounded-md"
-              />
-            </div>
-          ))}
-      </form>
-      <p className="mt-4 text-lg flex justify-between">
-        <span>Total Gross Rental Income:</span>
-        <strong>${revenue.grossRentalIncome}</strong>
-      </p>
->>>>>>> Stashed changes
     </div>
   )
 }

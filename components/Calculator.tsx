@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 
-<<<<<<< Updated upstream
 import Expenses from "@/components/calculator/Expenses"
 import MortgageCalculator from "@/components/calculator/MortgageCalculator"
 import Revenue from "@/components/calculator/Revenue"
@@ -14,17 +13,6 @@ import { RevenueInputs } from "@/types/revenue"
 import { MortgageInputs } from "@/types/mortgage"
 import { ExpenseInputs } from "@/types/expenses"
 import { calculateMortgage } from "@/utils/calculateMortgage"
-=======
-import Expenses from "@/components/calculator/Expenses";
-import MortgageCalculator from "@/components/calculator/MortgageCalculator";
-import Revenue from "@/components/calculator/Revenue";
-import InvestmentAnalysis from "@/components/calculator/InvestmentAnalysis";
-import { RevenueInputs } from "@/types/revenue";
-import { MortgageInputs } from "@/types/mortgage";
-import { ExpenseInputs } from "@/types/expenses";
-import { calculateMortgage } from "@/utils/calculateMortgage";
-import Targets from './calculator/Targets';
->>>>>>> Stashed changes
 
 const Calculator = () => {
   const [revenue, setRevenue] = useState<RevenueInputs>({
@@ -59,12 +47,11 @@ const Calculator = () => {
   const mortgagePayment = calculateMortgage(mortgage)
 
   return (
-<<<<<<< Updated upstream
     <div className="container mx-auto py-10 px-4 md:w-8/12 w-11/12">
       <div className="flex flex-col items-center mb-10 bg-[#4B75F2]/10 py-8 px-6 rounded-lg border border-[#B3BDF2]/30 shadow-sm">
         <div className="mb-3">
           <h1 className="text-4xl md:text-left text-center font-bold text-[#072BF2]">
-            Real Estate <span className="border-b-2 border-[#4B75F2] rounded-full pb-0.5">Investment</span> Calculator
+            Real Estate <span className="border-b-2 border-[#4B75F2] pb-0.5">Investment</span> Calculator
           </h1>
         </div>
         <p className="text-gray-700 mt-6 text-center max-w-2xl">
@@ -214,22 +201,6 @@ const Calculator = () => {
                       </div>
                     </div>
                   </div>
-=======
-    <>
-    {/* <div className="md:flex space-x-4 mt-4 mx-auto md:w-6/12 w-11/12 md:space-y-0 space-y-4">
-        <Targets />
-    </div> */}
-    
-      <div className="md:flex space-x-4 mt-4 mx-auto md:w-6/12 w-11/12 md:space-y-0 space-y-4">
-        
-        <MortgageCalculator mortgage={mortgage} setMortgage={setMortgage} />
-        <Revenue revenue={revenue} setRevenue={setRevenue} />
-      </div>
-
-      <div className="mx-auto md:w-6/12 w-11/12 mt-8">
-        <Expenses expenses={expenses} setExpenses={setExpenses} grossRentalIncome={revenue.grossRentalIncome} />
-      </div>
->>>>>>> Stashed changes
 
                   <div className="p-4 bg-[#4B75F2]/10 rounded-md border border-[#4B75F2]/20">
                     <h3 className="font-medium text-[#072BF2] mb-2 flex items-center">

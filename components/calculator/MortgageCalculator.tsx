@@ -3,16 +3,12 @@
 import { MortgageInputs } from "@/types/mortgage"
 import { calculateMortgage } from "@/utils/calculateMortgage"
 import { camelCaseToWords } from "@/utils/stringUtils"
-<<<<<<< Updated upstream
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Slider } from "@/components/ui/slider"
 import { DollarSign, Pencil } from "lucide-react"
-=======
-import { Input } from "../ui/input"
->>>>>>> Stashed changes
 
 interface MortgageCalculatorProps {
   mortgage: MortgageInputs
@@ -30,7 +26,6 @@ const MortgageCalculator = ({ mortgage, setMortgage }: MortgageCalculatorProps) 
   }
 
   return (
-<<<<<<< Updated upstream
     <div className="space-y-8 p-4 rounded-lg bg-[#B3BDF2]/20">
       {/* Home Price */}
       <div className="space-y-4">
@@ -181,32 +176,6 @@ const MortgageCalculator = ({ mortgage, setMortgage }: MortgageCalculatorProps) 
           </div>
         </CardContent>
       </Card>
-=======
-    <div className="p-6 border rounded-lg shadow-md w-full h-fit">
-      <h2 className="text-xl font-bold mb-4">Mortgage Calculator</h2>
-      <form className="space-y-3">
-        {Object.keys(mortgage).map((key) => (
-          <div key={key} className="flex items-center justify-between">
-            <label className="block font-medium w-1/2">{camelCaseToWords(key)}</label>
-            <Input
-              type="number"
-              value={mortgage[key as keyof MortgageInputs]}
-              onChange={(e) =>
-                setMortgage((prev) => ({
-                  ...prev,
-                  [key]: Number(e.target.value),
-                }))
-              }
-              className="w-1/2 p-2 border rounded-md"
-            />
-          </div>
-        ))}
-      </form>
-      <p className="mt-4 text-lg flex justify-between">
-        <span>Monthly Payment:</span>
-        <strong>${monthlyPayment.toFixed(2)}</strong>
-      </p>
->>>>>>> Stashed changes
     </div>
   )
 }

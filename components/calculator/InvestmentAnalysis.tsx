@@ -4,12 +4,8 @@ import React from 'react';
 import { calculateNOI, calculateCashFlow, calculateCapRate, calculateCashOnCashReturn, calculateLoanAmortization } from '@/utils/calculateFinancialAnalysis';
 import { RevenueInputs } from '@/types/revenue';
 import { ExpenseInputs } from '@/types/expenses';
-<<<<<<< Updated upstream
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp, DollarSign, ArrowUp, BarChart3, PieChart, Calendar, ArrowRight } from "lucide-react";
-=======
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
->>>>>>> Stashed changes
 
 interface InvestmentAnalysisProps {
   revenue: RevenueInputs;
@@ -59,7 +55,6 @@ const InvestmentAnalysis = ({
   };
 
   return (
-<<<<<<< Updated upstream
     <div className="space-y-6">
       {/* Key Metrics Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -241,51 +236,6 @@ const InvestmentAnalysis = ({
           </CardContent>
         </Card>
       </div>
-=======
-    <div className="p-6 mb-3 border rounded-lg shadow-md w-full h-fit">
-      <h2 className="text-xl font-bold mb-4">Investment Analysis</h2>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Metric</TableHead>
-            <TableHead>Monthly</TableHead>
-            <TableHead>Yearly</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow>
-            <TableCell>Net Operating Income (NOI)</TableCell>
-            <TableCell>${(noi / 12).toFixed(2)}</TableCell>
-            <TableCell>${noi.toFixed(2)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Cash Flow</TableCell>
-            <TableCell>${(cashFlow / 12).toFixed(2)}</TableCell>
-            <TableCell>${cashFlow.toFixed(2)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Cap Rate</TableCell>
-            <TableCell>-</TableCell>
-            <TableCell>{(capRate * 100).toFixed(2)}%</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Cash on Cash Return</TableCell>
-            <TableCell>-</TableCell>
-            <TableCell>{(cashOnCashReturn * 100).toFixed(2)}%</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>First Year Amortization - Principal Paid</TableCell>
-            <TableCell>${(firstYearAmortization.principalPaid / 12).toFixed(2)}</TableCell>
-            <TableCell>${firstYearAmortization.principalPaid.toFixed(2)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Total ROI (Cash Flow + Amortization)</TableCell>
-            <TableCell>${(totalROI / 12).toFixed(2)}</TableCell>
-            <TableCell>${totalROI.toFixed(2)} ({totalROIPercentage.toFixed(2)}%)</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
->>>>>>> Stashed changes
     </div>
   );
 };
