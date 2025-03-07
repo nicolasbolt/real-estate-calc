@@ -1,33 +1,36 @@
-name: Deploy to Digital Ocean Droplet
+name: Deploy to Production
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Build
-      run: npm run build
-    
-    - name: Deploy to Digital Ocean
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.DO_HOST }}
-        username: ${{ secrets.DO_USERNAME }}
-        key: ${{ secrets.DO_SSH_KEY }}
-        source: "dist/"
-        target: ${{ secrets.DO_TARGET_PATH }}
+  build:
+    uses: nicolasbolt/github-templates/.github/workflows/node-build.yml@main
+    with:
+      node-version: '20'
+      upload-artifacts: true
+      artifact-name: 'build-output'
+      artifact-path: 'dist/'
+
+  # test:
+  #   needs: build
+  #   uses: nicolasbolt/github-templates/.github/workflows/node-test.yml@main
+  #   with:
+  #     node-version: '20'
+  #     test-command: 'npm test'
+  #     use-build-artifacts: true
+  #     artifact-name: 'build-output'
+  #     artifact-path: 'dist/'
+  
+  deploy:
+    # needs: [build, test] # Uncomment if test job is enabled
+    needs: build
+    uses: nicolasbolt/github-templates/.github/workflows/digital-ocean-deploy.yml@main
+    with:
+      source-path: 'dist/'
+    secrets:
+      DO_HOST: ${{ secrets.DO_HOST }}
+      DO_USERNAME: ${{ secrets.DO_USERNAME }}
+      DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
+      DO_TARGET_PATH: ${{ secrets.DO_TARGET_PATH }}
