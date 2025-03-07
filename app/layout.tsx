@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: "https://www.rental-calc.nicolasbolt.com/",
     images: [
       {
-        url: "/og.svg",
+        url: "https://www.rental-calc.nicolasbolt.com/og.svg",
         width: 800,
         height: 600,
         alt: "Real Estate Investment Calculator Social Image",
